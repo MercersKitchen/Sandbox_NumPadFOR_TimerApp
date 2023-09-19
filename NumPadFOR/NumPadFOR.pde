@@ -6,8 +6,10 @@
 //Global Variables
 int appWidth, appHeight; //CAUTION: decimals are truncated in ints, not floats or doubles
 float widthSquare, heightSquare;
-float x0, x1, x2;
-float y0, y1, y2, y3, y4;
+int numPadColumns = 3;
+float[] x = new float [numPadColumns];
+int numPadRow = 5;
+float[] y = new float [numPadRow];
 //
 void setup() {
   size (400, 700);
