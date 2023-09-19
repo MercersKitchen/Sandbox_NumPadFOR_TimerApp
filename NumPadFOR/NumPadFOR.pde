@@ -20,17 +20,28 @@ void setup() {
   widthSquare = appWidth*1/4;
   heightSquare = widthSquare;
   //Error with PrintArray, FIX
-  for (int i=0; i<numPadRow-1; i++ ) { // i stops for x not y
-    for ( int j=1; j<numPadRow; j+=2 ) { //j=j+2
-      if ( i<numPadColumns ) x[i] = widthSquare*j/2;
-      y[i] = widthSquare*5/2;
-      println("Inside", y[i]);
-      //println( if(i<numPadColumns) x[i] );
+  for (int i=0; i<numPadColumns; i++ ) { // i stops for x not y
+    for ( int j=1; j<=numPadRow; j+=2 ) { //j=j+2
+      x[i] = widthSquare*j/2;
+      println("Inside x", x[i] );
+      //NOTE: x being overwritten with J
     } //End FOR
   } //End FOR
+  //y[i] = widthSquare*(j+4)/2;
+  //if(i<numPadColumns) 
+  //println("Inside y", y[i], "\t");
   printArray(x);
-  printArray(y);
-  //
+  //printArray(y);
+  /*
+  x0 = widthSquare*1/2;
+   x1 = widthSquare*3/2;
+   x2 = widthSquare*5/2;
+   y0 = widthSquare*5/2;
+   y1 = widthSquare*7/2;
+   y2 = widthSquare*9/2;
+   y3 = widthSquare*11/2;
+   y4 = widthSquare*14/2;
+   */
   //Nested FOR, reading rect() arrays
   //
 } //End setup
