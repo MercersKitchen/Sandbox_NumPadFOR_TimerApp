@@ -48,12 +48,11 @@ void setup() {
 } //End setup
 //
 void draw() {
-  for () {
-    for () {
+  for ( int i=0; i<numPadColumns; i++ ) {
+    for ( int j=0; j<numPadRows-1; j++ ) {
       rect(x[i], y[j], widthSquare, heightSquare);
     } //End FOR
   } //End FOR
-
   /*
   rect(x0, y0, widthSquare, heightSquare);
    rect(x0, y1, widthSquare, heightSquare);
@@ -71,10 +70,18 @@ void draw() {
 } //End draw
 //
 void mousePressed() {
-  //mouseX> && mouseX< && mouseY> && mouseY<
-  //x0, y0, widthSquare, heightSquare
-  //if ( mouseX>x0 && mouseX<x0+widthSquare && mouseY>y0 && mouseY<y0+widthSquare ) println("1");
+  //
+  // Creating Number Pad Buttons
+  // Basic IF key variables: mouseX> && mouseX< && mouseY> && mouseY<
+  // First rect variables: x0, y0, widthSquare, heightSquare
+  // if ( mouseX>x0 && mouseX<x0+widthSquare && mouseY>y0 && mouseY<y0+widthSquare ) println("1");
   // CAUTION: finish mousePressing when arrays can be read
+  //
+  for (int i=0; i<1 ; i++) {
+    if ( mouseX>x[i] && mouseX<x[i]+widthSquare && mouseY>y[i] && mouseY<y[i]+widthSquare ) println("Button #:", i+1);
+  } // End FOR
+  // CAUTION: fix for rest of buttons
+  // Hint: construct all the single line IFs
   //
 } //End mousePressed
 //
