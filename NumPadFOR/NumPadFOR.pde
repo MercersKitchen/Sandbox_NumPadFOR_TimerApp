@@ -8,8 +8,8 @@ int appWidth, appHeight; //CAUTION: decimals are truncated in ints, not floats o
 float widthSquare, heightSquare;
 int numPadColumns = 3;
 float[] x = new float [numPadColumns];
-int numPadRow = 5;
-float[] y = new float [numPadRow];
+int numPadRows = 5;
+float[] y = new float [numPadRows];
 //
 void setup() {
   size (400, 700);
@@ -20,18 +20,19 @@ void setup() {
   widthSquare = appWidth*1/4;
   heightSquare = widthSquare;
   //Error with PrintArray, FIX
-  for (int i=0; i<numPadColumns; i++ ) { // i stops for x not y
-    for ( int j=1; j<=numPadRow; j+=2 ) { //j=j+2
-      x[i] = widthSquare*j/2;
-      println("Inside x", x[i] );
-      //NOTE: x being overwritten with J
-    } //End FOR
+  for ( int i=0; i<numPadColumns; i++ ) { // i stops for x not y
+    x[i] = widthSquare*(2*i+1)/2;
+    println("Inside x", x[i] );
   } //End FOR
-  //y[i] = widthSquare*(j+4)/2;
-  //if(i<numPadColumns) 
-  //println("Inside y", y[i], "\t");
+  for ( int i=0; i<numPadRows; i++ ) {
+    y[i] = widthSquare*(2*i+5)/2;
+    println("Inside y", y[i]);
+  } // End FOR
+  //
+  //if(i<numPadColumns)
+  //
   printArray(x);
-  //printArray(y);
+  printArray(y);
   /*
   x0 = widthSquare*1/2;
    x1 = widthSquare*3/2;
@@ -47,6 +48,12 @@ void setup() {
 } //End setup
 //
 void draw() {
+  for () {
+    for () {
+      rect(x[i], y[j], widthSquare, heightSquare);
+    } //End FOR
+  } //End FOR
+
   /*
   rect(x0, y0, widthSquare, heightSquare);
    rect(x0, y1, widthSquare, heightSquare);
