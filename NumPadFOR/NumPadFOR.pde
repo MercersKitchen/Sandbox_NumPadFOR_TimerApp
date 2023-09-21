@@ -19,7 +19,6 @@ void setup() {
   //Population of rect() variables
   widthSquare = appWidth*1/4;
   heightSquare = widthSquare;
-  //
   /* Primitive Variable Prototyping
    x0 = widthSquare*1/2;
    x1 = widthSquare*3/2;
@@ -30,7 +29,6 @@ void setup() {
    y3 = widthSquare*11/2;
    y4 = widthSquare*14/2;
    */
-  //
   /* Separate FOR Loops
    for ( int i=0; i<numPadColumns; i++ ) { // i stops for x not y
    x[i] = widthSquare*(2*i+1)/2;
@@ -46,13 +44,8 @@ void setup() {
     if ( i<numPadColumns ) x[i] = writeCoordinate(i, 1);
     y[i] = writeCoordinate(i, 5);
   } // End FOR
-  //if(i<numPadColumns)
-  //
   printArray(x);
   printArray(y);
-
-  //Nested FOR, reading rect() arrays
-  //
 } //End setup
 float writeCoordinate (int i, int oddStart) {
   return widthSquare*(2*i+oddStart)/2;
@@ -64,7 +57,7 @@ void draw() {
       rect(x[i], y[j], widthSquare, heightSquare);
     } //End FOR
   } //End FOR
-  /*
+  /* Primitive Variables in drawing rect()s
   rect(x0, y0, widthSquare, heightSquare);
    rect(x0, y1, widthSquare, heightSquare);
    rect(x0, y2, widthSquare, heightSquare);
@@ -99,7 +92,8 @@ void mousePressed() {
   } // End FOR
   // CAUTION: will iterate over all buttons
   // Fix Hint: start at beginning and stop when button activated
-  // Change FOR to WHILE
+  // Solution: Change FOR to WHILE
+  // Unsolved Problem: estimating where to start reading instead of button "1"
   //
 } //End mousePressed
 //
