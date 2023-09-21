@@ -19,22 +19,9 @@ void setup() {
   //Population of rect() variables
   widthSquare = appWidth*1/4;
   heightSquare = widthSquare;
-  //Error with PrintArray, FIX
-  for ( int i=0; i<numPadColumns; i++ ) { // i stops for x not y
-    x[i] = widthSquare*(2*i+1)/2;
-    println("Inside x", x[i] );
-  } //End FOR
-  for ( int i=0; i<numPadRows; i++ ) {
-    y[i] = widthSquare*(2*i+5)/2;
-    println("Inside y", y[i]);
-  } // End FOR
   //
-  //if(i<numPadColumns)
-  //
-  printArray(x);
-  printArray(y);
-  /*
-  x0 = widthSquare*1/2;
+  /* Primitive Variable Prototyping
+   x0 = widthSquare*1/2;
    x1 = widthSquare*3/2;
    x2 = widthSquare*5/2;
    y0 = widthSquare*5/2;
@@ -43,9 +30,33 @@ void setup() {
    y3 = widthSquare*11/2;
    y4 = widthSquare*14/2;
    */
+  //
+  /* Separate FOR Loops
+   for ( int i=0; i<numPadColumns; i++ ) { // i stops for x not y
+   x[i] = widthSquare*(2*i+1)/2;
+   println("Inside x", x[i] );
+   } //End FOR
+   for ( int i=0; i<numPadRows; i++ ) {
+   y[i] = widthSquare*(2*i+5)/2;
+   println("Inside y", y[i]);
+   } // End FOR
+   */
+  // Combined FOR Loops
+  for ( int i=0; i<numPadRows; i++ ) {
+    if ( i<numPadColumns ) x[i] = writeCoordinate(i, 1);
+    y[i] = writeCoordinate(i, 5);
+  } // End FOR
+  //if(i<numPadColumns)
+  //
+  printArray(x);
+  printArray(y);
+
   //Nested FOR, reading rect() arrays
   //
 } //End setup
+float writeCoordinate (int i, int oddStart) {
+  return widthSquare*(2*i+oddStart)/2;
+} //End writeCoordiante
 //
 void draw() {
   for ( int i=0; i<numPadColumns; i++ ) {
@@ -75,13 +86,20 @@ void mousePressed() {
   // Basic IF key variables: mouseX> && mouseX< && mouseY> && mouseY<
   // First rect variables: x0, y0, widthSquare, heightSquare
   // if ( mouseX>x0 && mouseX<x0+widthSquare && mouseY>y0 && mouseY<y0+widthSquare ) println("1");
-  // CAUTION: finish mousePressing when arrays can be read
   //
-  for (int i=0; i<1 ; i++) {
-    if ( mouseX>x[i] && mouseX<x[i]+widthSquare && mouseY>y[i] && mouseY<y[i]+widthSquare ) println("Button #:", i+1);
+  int buttonCounter = 1;
+  for ( int i=0; i<numPadColumns; i++ ) {
+    for ( int j=0; j<numPadRows; j++ ) {
+      println(i, j);
+      if ( mouseX>x[i] && mouseX<x[i]+widthSquare && mouseY>y[j] && mouseY<y[j]+widthSquare ) println("Button #:", buttonCounter);
+      buttonCounter++;
+      // Note: built in ERROR with buttonCounter, iterates the wrong way
+      // CAUTION: prototyping button return must be fixed before using this in timer program
+    } //End FOR
   } // End FOR
-  // CAUTION: fix for rest of buttons
-  // Hint: construct all the single line IFs
+  // CAUTION: will iterate over all buttons
+  // Fix Hint: start at beginning and stop when button activated
+  // Change FOR to WHILE
   //
 } //End mousePressed
 //
