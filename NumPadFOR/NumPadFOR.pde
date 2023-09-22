@@ -12,7 +12,7 @@ int numPadRows = 5;
 float[] y = new float [numPadRows];
 //
 void setup() {
-  size (400, 700);
+  size (400, 500);
   appWidth = width;
   appHeight = height;
   //
