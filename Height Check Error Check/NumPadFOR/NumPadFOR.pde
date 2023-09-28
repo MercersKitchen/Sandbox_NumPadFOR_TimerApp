@@ -25,7 +25,7 @@ void setup() {
     // Empty IF
   } else {
     println("false");
-    widthSquare = appHeight*1/8;
+    widthSquare = heightSquare = appHeight*1/8;
     border = appWidth - ( widthSquare*1/2 + widthSquare*3 + widthSquare*1/2 );
     border = border*1/2; // using one variable saves system resources
   } //End Height Error Check
@@ -54,8 +54,8 @@ void setup() {
     if ( i<numPadColumns ) x[i] = writeCoordinate(i, 1);
     y[i] = writeCoordinate(i, 5);
   } // End FOR
-  //printArray(x);
-  //printArray(y);
+  printArray(x);
+  printArray(y);
 } //End setup
 float writeCoordinate (int i, int oddStart) {
   return border + ( widthSquare*(2*i+oddStart)/2 );
